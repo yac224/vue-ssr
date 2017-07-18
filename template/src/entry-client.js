@@ -8,7 +8,7 @@ Vue.mixin({
     if (asyncData) {
       asyncData({
         store: this.$store,
-        router: this.$souter
+        router: this.$router
       }).then(next).catch(next)
     } else {
       next()
