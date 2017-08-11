@@ -24,6 +24,7 @@ module.exports = {
       "named": "ignore",
       "asyncArrow": "ignore"
     }],
+    "func-call-spacing": 0
   },
   "globals": {
     "Image": true,
