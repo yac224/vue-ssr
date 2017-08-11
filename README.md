@@ -25,7 +25,7 @@ $ npm run dev
   - Route-level code splitting
 
 - VSCode Setting
-  - recommendation plugins
+  - extension recommendation 
   - formatter setting for beautify & eslint
   - blueprint template for project
 

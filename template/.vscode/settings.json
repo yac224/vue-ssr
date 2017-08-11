@@ -20,5 +20,7 @@
     "vuex"
   ],
   "blueprint.templatesPath": ".vscode/blueprint-templates",
-
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+  }
 }
