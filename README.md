@@ -23,7 +23,33 @@ $ npm run dev
   - Automatically inlines CSS used by rendered components only
   - Preload / prefetch resource hints
   - Route-level code splitting
-  
-- `npm run dev`: webpack + `vue-loader` with hot-reload dev server.
 
-- `npm run build`: build with js minification & css extract with express server.
+- VSCode Setting
+  - recommendation plugins
+  - formatter setting for beautify & eslint
+  - blueprint template for project
+
+## Build Setup
+
+**Requires Node.js 6+**
+
+``` bash
+# install dependencies
+npm install
+
+# serve in dev mode, with hot reload at localhost:8080
+npm run dev
+
+# build for production express server with js minification & css extract
+npm run build
+
+# serve in production mode
+npm start
+
+# check eslint from standard rule
+npm run lint
+```
+
+## License
+
+MIT

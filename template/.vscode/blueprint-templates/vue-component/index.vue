@@ -1,10 +1,10 @@
 <script>
-  const name = 'list'
+  const name = '\{{ kebabCase name }}'
   export default {
     name,
-    props: ['list']
   }
 </script>
 
 <template src="./template.html"></template>
-<style lang="scss" src="./style.scss" scoped></style>
+<style lang="scss" src="./style.scss"></style>
+

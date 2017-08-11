@@ -1,8 +1,8 @@
 <script>
-  const name = 'list'
+  const name = 'top'
   export default {
     name,
-    props: ['list']
+    props: ['data']
   }
 </script>
 

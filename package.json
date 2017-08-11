@@ -2,9 +2,9 @@
   "name": "vue-ssr",
   "description": "A vue server render templete for quick start.",
   "author": "Alex Chen<yac224@yacoding.comn>",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "devDependencies": {
-    "vue-cli": "^2.8.1"
+    "vue-cli": "^2.8.2"
   },
   "license": "MIT"
 }

@@ -1,0 +1,24 @@
+// 將您的設定放入此檔案中以覆寫預設值
+{
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "window.zoomLevel": 0,
+  "files.autoSave": "onWindowChange",
+  // "files.associations": {
+  //   "*.vue": "html"
+  // },
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "javascript.validate.enable": false,
+  "vetur.format.styleInitialIndent": true,
+  "vetur.format.scriptInitialIndent": true,
+  "cSpell.userWords": [
+    "vuex"
+  ],
+  "blueprint.templatesPath": ".vscode/blueprint-templates",
+
+}

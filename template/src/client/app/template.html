@@ -1,0 +1,17 @@
+<div id="app" v-cloak>
+  <div id="header">
+    <router-link id="logo" to="/" exact>
+      <img src="/images/logo.png">
+      <span>Vue.js</span>
+    </router-link>
+    <ul id="nav">
+      <li>
+        <router-link class="nav-link" to="/" exact>INTRO</router-link>
+      </li>
+      <li>
+        <router-link class="nav-link" to="/about">ABOUT</router-link>
+      </li>
+    </ul>
+  </div>
+  <router-view></router-view>
+</div>

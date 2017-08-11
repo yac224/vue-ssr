@@ -16,15 +16,16 @@ module.exports = {
   resolve: {
     alias: {
       'static': resolve('../static'),
-      'client': resolve('../src/client'),
+      'utils': resolve('../src/utils'),
       'server': resolve('../src/server'),
+      'client': resolve('../src/client'),
       'pages': resolve('../src/client/pages'),
       'components': resolve('../src/client/components')
     },
     extensions: ['.js', '.vue', '/index.vue']
   },
   module: {
-    noParse: /es6-promise\.js$/, // avoid webpack shimming process
+    // noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -42,22 +43,6 @@ module.exports = {
           limit: 10000,
           name: '[name].[ext]?[hash]'
         }
-      },
-      {
-        test: /\.css$/,
-        use: isProd ?
-          ExtractTextPlugin.extract({
-            use: 'css-loader?minimize',
-            fallback: 'vue-style-loader'
-          }) : ['vue-style-loader', 'css-loader']
-      },
-      {
-        test: /\.scss$/,
-        use: isProd ?
-          ExtractTextPlugin.extract({
-            use: 'css-loader?minimize!sass-loader',
-            fallback: 'vue-style-loader'
-          }) : ['vue-style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

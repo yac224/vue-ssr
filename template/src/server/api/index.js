@@ -1,40 +1,79 @@
 const express = require('express')
 const router = express.Router()
 let response
+
+/*
+ * API Status Code Rule
+ * 
+ * GET:
+ * 
+ * 200 (OK)
+ * 400 (Bad Request)
+ * 404 (Not Found)
+ * 
+ * POST (Create):
+ * 
+ * 200 (OK)
+ * 400 (Bad Request)
+ * 403 (Forbidden)
+ * 404 (Not Found)
+ * 
+ * PUT/PATCH (Update):
+ * 
+ * 200 (OK)
+ * 400 (Bad Request)
+ * 403 (Forbidden)
+ * 404 (Not Found)
+ * 
+ * DELETE:
+ * 
+ * 200 (OK)
+ * 400 (Bad Request)
+ * 403 (Forbidden)
+ * 404 (Not Found)
+ *
+ */
+
+const message = {
+  400: 'API Bad Request',
+  403: 'API Forbidden',
+  404: 'API Not Found'
+}
+
 router.use(function(req, res, next) {
+  res.setHeader('Content-Type', 'application/json')
   response = {
-    status: 'Fail',
+    status: 404,
     data: null,
     message: null
   }
   next()
 })
 
-router.route('/logo')
+// api under this line
+router.route('/title')
   .get(function(req, res, next) {
-    response.status = 'Success'
+    response.status = 200
     response.data = {
-      vue: {
-        title: 'The Progressive <br> JavaScript Framework',
-        link: [{
-          content: 'GET STARTED',
-          href: 'https://vuejs.org/v2/guide/',
-          type: 0,
-          target: '_blank'
-        }, {
-          content: 'GITHUB',
-          href: 'https://github.com/vuejs/vue',
-          type: 1,
-          target: '_blank'
-        }]
-      }
+      title: 'The Progressive <br> JavaScript Framework',
+      link: [{
+        content: 'GET STARTED',
+        href: 'https://vuejs.org/v2/guide/',
+        type: 1,
+        target: '_blank'
+      }, {
+        content: 'GITHUB',
+        href: 'https://github.com/vuejs/vue',
+        type: 0,
+        target: '_blank'
+      }]
     }
-    response.message = null
-    res.json(response)
+    next()
   })
+
 router.route('/list')
   .get(function(req, res, next) {
-    response.status = 'Success'
+    response.status = 200
     response.data = {
       list: [{
         title: 'Approachable',
@@ -44,15 +83,16 @@ router.route('/list')
         description: 'Simple, minimal core with an incrementally adoptable stack that can handle apps of any scale.'
       }, {
         title: 'Performant',
-        description: '19kb min+gzip Runtime <br> Blazing Fast Virtual DOM <br> Minimal Optimization Efforts.'
+        description: '20kb min+gzip Runtime <br> Blazing Fast Virtual DOM <br> Minimal Optimization Efforts.'
       }]
     }
-    response.message = null
-    res.json(response)
+    next()
   })
 
 router.use(function(req, res) {
-  response.message = "API NOT MATCH"
+  if (response.status !== 200 && !response.message) {
+    response.message = message[response.status]
+  }
   res.json(response)
 })
 

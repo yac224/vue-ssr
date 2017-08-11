@@ -7,7 +7,8 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 const config = merge(base, {
   entry: {
-    app: './src/entry-client.js'
+    vendor: ['vue', 'vue-router', 'vuex', 'vuex-router-sync', 'vue-meta', 'superagent'],
+    app: './src/client/entry.js'
   },
   // resolve: {
   //   alias: {
@@ -22,20 +23,22 @@ const config = merge(base, {
     // extract vendor chunks for better caching
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function(module) {
-        // a module is extracted into the vendor chunk if...
-        return (
-          // it's inside node_modules
-          /node_modules/.test(module.context) &&
-          // and not a CSS file (due to extract-text-webpack-plugin limitation)
-          !/\.css$/.test(module.request)
-        )
-      }
+      minChunks: Infinity,
+      // minChunks: function(module) {
+      //   // a module is extracted into the vendor chunk if...
+      //   return (
+      //     // it's inside node_modules
+      //     /node_modules/.test(module.context) &&
+      //     // and not a CSS file (due to extract-text-webpack-plugin limitation)
+      //     !/\.css$/.test(module.request)
+      //   )
+      // }
     }),
     // extract webpack runtime & manifest to avoid vendor chunk hash changing
     // on every build.
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
+      name: 'manifest',
+      minChunks: Infinity
     }),
     new VueSSRClientPlugin()
   ]

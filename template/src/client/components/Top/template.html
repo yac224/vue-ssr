@@ -1,0 +1,11 @@
+<div class="logo">
+  <div class="left">
+    <img src="/images/logo.png">
+  </div>
+  <div class="right">
+    <h1 v-html="data.title"></h1>
+    <p>
+      <a v-for="item in data.link" class="button" :class="{active:item.type}" :href="item.href" :target="item.target">\{{ item.content }}</a>
+    </p>
+  </div>
+</div>

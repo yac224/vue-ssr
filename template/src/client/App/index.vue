@@ -1,23 +1,24 @@
-<template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
-</template>
+<script>
+  export default {
+    metaInfo: {
+      title: 'Vue.js',
+      titleTemplate: null,
+      meta: [{
+        'http-equiv': 'Content-Type',
+        content: 'text/html; charset=utf-8'
+      }, {
+        'http-equiv': 'Content-language',
+        content: 'zh-tw'
+      }, {
+        name: 'viewport',
+        content: 'initial-scale=1, maximum-scale=1, user-scalable=no'
+      }],
+      link: [
+        { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' }
+      ]
+    }
+  }
+</script>
 
-<style>
-  html {
-    min-height: 100%;
-    background-color: #eee;
-  }
-  
-  body {
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 15px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #34495e;
-    background-color: #fff;
-    margin: 0;
-    text-align: center;
-  }
-</style>
+<template src="./template.html"></template>
+<style lang="scss" src="./style/style.scss"></style>

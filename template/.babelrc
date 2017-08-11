@@ -1,14 +1,19 @@
 {
   "presets": [
+    ["stage-2"],
     [
       "env",
       {
         "modules": false,
         "loose": true
       }
-    ],
-    ["stage-2"]
+    ]
   ],
+  "env": {
+    "production": {
+      "comments": false
+    }
+  },
   "plugins": [
     "syntax-dynamic-import"
   ]

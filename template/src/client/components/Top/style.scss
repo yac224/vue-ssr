@@ -1,0 +1,27 @@
+  .logo {
+    padding: 50px 40px;
+  }
+  
+  .left {
+    width: 39%;
+    display: inline-block;
+    vertical-align: top;
+    >img {
+      width: 215px;
+      height: 215px;
+      float: right;
+      margin-right: 60px;
+    }
+  }
+  
+  .right {
+    width: 61%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    >h1 {
+      font-weight: 300;
+      margin: 0;
+      font-size: 3.2em;
+    }
+  }

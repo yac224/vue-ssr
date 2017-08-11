@@ -1,0 +1,19 @@
+.content {
+  position: relative;
+  padding-bottom: 70px;
+  text-align: left;
+  >p {
+    padding: 0 2em;
+    line-height: 1.6em;
+    word-spacing: 0.05em;
+    color: #7f8c8d;
+    >strong {
+      color: #34495e
+    }
+    >a {
+      color: #42b983;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+}

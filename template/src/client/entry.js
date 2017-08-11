@@ -1,20 +1,5 @@
-import Vue from 'vue'
-import 'es6-promise/auto'
-import { createApp } from './client'
-
-Vue.mixin({
-  beforeRouteUpdate(to, from, next) {
-    const { asyncData } = this.$options
-    if (asyncData) {
-      asyncData({
-        store: this.$store,
-        router: this.$router
-      }).then(next).catch(next)
-    } else {
-      next()
-    }
-  }
-})
+// import 'es6-promise/auto'
+import { createApp } from 'client'
 
 const { app, router, store } = createApp()
 
@@ -34,17 +19,15 @@ router.onReady(() => {
     if (!asyncDataHooks.length) {
       return next()
     }
-
-    Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
+    Promise.all(asyncDataHooks.map(hook => hook({ store, router })))
       .then(() => {
         next()
       })
       .catch(next)
   })
-
   app.$mount('#app')
 })
 
-if ('https:' === location.protocol && navigator.serviceWorker) {
+if (location.protocol === 'https:' && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }
