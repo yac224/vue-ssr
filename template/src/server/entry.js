@@ -12,11 +12,12 @@ export default context => {
     const s = isDev && Date.now()
     const { app, router, store } = createApp()
     const { url } = context
-    const fullPath = router.resolve(url).route.fullPath
 
-    if (fullPath !== url) {
-      reject(new Error('Bad Request'))
-    }
+    // reject vue-router redirect
+    // const fullPath = router.resolve(url).route.fullPath
+    // if (fullPath !== url) {
+    //   reject(new Error('Bad Request'))
+    // }
 
     // set router's location
     router.push(url)
@@ -37,8 +38,7 @@ export default context => {
         // updated.
         Promise.all(matchedComponents.map(({ asyncData }) => asyncData && asyncData({
           store,
-          router
-          // route: router.currentRoute
+          route: router.currentRoute
         }))).then(() => {
           isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`)
 

@@ -2,7 +2,7 @@
   "name": "vue-ssr",
   "description": "A vue server render templete for quick start.",
   "author": "Alex Chen<yac224@yacoding.comn>",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "devDependencies": {
     "vue-cli": "^2.8.2"
   },

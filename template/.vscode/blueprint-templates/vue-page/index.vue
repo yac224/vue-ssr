@@ -7,7 +7,7 @@
     metaInfo: {
       titleTemplate: '%s - ' + name,
     },
-    asyncData({ store, router }) {
+    asyncData({ store, route }) {
       let state = store.state[name]
       if (!store._modulesNamespaceMap[name + '/']) {
         store.registerModule(name, createModule())

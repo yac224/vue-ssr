@@ -19,7 +19,7 @@ router.onReady(() => {
     if (!asyncDataHooks.length) {
       return next()
     }
-    Promise.all(asyncDataHooks.map(hook => hook({ store, router })))
+    Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
       .then(() => {
         next()
       })
